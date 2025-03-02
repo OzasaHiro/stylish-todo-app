@@ -3,12 +3,14 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { useToast } from '@/app/components/ui/use-toast'
 
+export type Priority = 'LOW' | 'NORMAL' | 'HIGH' | 'URGENT';
+
 export type Todo = {
   id: string
   title: string
   description?: string | null
   completed: boolean
-  priority: 'LOW' | 'NORMAL' | 'HIGH' | 'URGENT'
+  priority: Priority
   category?: string | null
   dueDate?: Date | string | null
   createdAt: Date | string
