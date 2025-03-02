@@ -15,7 +15,7 @@ model Todo {
   title       String
   description String?
   completed   Boolean  @default(false)
-  priority    Priority @default(NORMAL)
+  priority    String   @default("NORMAL") // enumの代わりに文字列を使用
   category    String?
   dueDate     DateTime?
   createdAt   DateTime @default(now())
@@ -23,9 +23,5 @@ model Todo {
   position    Int      @default(0)
 }
 
-enum Priority {
-  LOW
-  NORMAL
-  HIGH
-  URGENT
-}
+// SQLiteはenumをサポートしていないため、アプリケーションコードで以下の値を使用します
+// 優先度: "LOW", "NORMAL", "HIGH", "URGENT"
