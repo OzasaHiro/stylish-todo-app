@@ -18,7 +18,7 @@
 
 - **フロントエンド:**
   - Next.js 15.1.3
-  - React 19.0.0
+  - React 18.2.0
   - TypeScript 5.0.0
   - Tailwind CSS 3.4.17
   - shadcn/ui 2.1.8
