@@ -72,19 +72,12 @@ model Todo {
   title       String
   description String?
   completed   Boolean   @default(false)
-  priority    Priority  @default(NORMAL)
+  priority    String    @default("NORMAL") // 値: "LOW", "NORMAL", "HIGH", "URGENT"
   category    String?
   dueDate     DateTime?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   position    Int       @default(0)
-}
-
-enum Priority {
-  LOW
-  NORMAL
-  HIGH
-  URGENT
 }
 ```
 
