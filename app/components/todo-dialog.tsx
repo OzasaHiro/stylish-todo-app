@@ -30,7 +30,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/app/components/ui/popover'
-import { useTodo, Todo } from '@/app/context/todo-context'
+import { useTodo, Todo, Priority } from '@/app/context/todo-context'
 import { format } from 'date-fns'
 
 interface TodoDialogProps {
@@ -43,7 +43,7 @@ export function TodoDialog({ open, onOpenChange, todo }: TodoDialogProps) {
   const { addTodo, updateTodo } = useTodo()
   const [title, setTitle] = useState(todo?.title || '')
   const [description, setDescription] = useState(todo?.description || '')
-  const [priority, setPriority] = useState<'LOW' | 'NORMAL' | 'HIGH' | 'URGENT'>(todo?.priority || 'NORMAL')
+  const [priority, setPriority] = useState<Priority>(todo?.priority || 'NORMAL')
   const [date, setDate] = useState<Date | undefined>(
     todo?.dueDate ? new Date(todo.dueDate) : undefined
   )
@@ -135,7 +135,7 @@ export function TodoDialog({ open, onOpenChange, todo }: TodoDialogProps) {
                 <Label className="font-medium">Priority</Label>
                 <RadioGroup 
                   value={priority} 
-                  onValueChange={(value) => setPriority(value as 'LOW' | 'NORMAL' | 'HIGH' | 'URGENT')}
+                  onValueChange={(value) => setPriority(value as Priority)}
                 >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="LOW" id="low" />
